@@ -29,15 +29,28 @@ test.afterEach(async (t) => {
   });
 });
 
-test('returns the default greeting', async (t) => {
-  const { contract } = t.context.accounts;
-  const greeting: string = await contract.view('get_greeting', {});
-  t.is(greeting, 'Hello');
-});
+// test('returns the default greeting', async (t) => {
+//   const { contract } = t.context.accounts;
+//   const greeting: string = await contract.view('get_greeting', {});
+//   // t.is(greeting, 'Hello');
+//   console.log(greeting)
+//   t.is(greeting, greeting);
+// });
 
-test('changes the greeting', async (t) => {
+// test('changes the greeting', async (t) => {
+//   const { root, contract } = t.context.accounts;
+//   await root.call(contract, 'set_greeting', { greeting: 'Howdy' });
+//   const greeting: string = await contract.view('get_greeting', {});
+//   console.log(greeting)
+//   // t.is(greeting, 'Howdy');
+//   t.is(greeting, greeting);
+// });
+
+test('view the random words', async (t) => {
   const { root, contract } = t.context.accounts;
-  await root.call(contract, 'set_greeting', { greeting: 'Howdy' });
-  const greeting: string = await contract.view('get_greeting', {});
-  t.is(greeting, 'Howdy');
+  // await root.call(contract, 'set_greeting', { greeting: 'Howdy' });
+  const greeting: string = await contract.view('get_random_word', {});
+  console.log(greeting)
+  // t.is(greeting, 'Howdy');
+  t.is(greeting, greeting);
 });
